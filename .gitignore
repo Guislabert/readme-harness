@@ -1,0 +1,13 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# Scratch / generated-on-demand (regenerate with tools/generate.mjs)
+/generated-probe/
+/tmp/

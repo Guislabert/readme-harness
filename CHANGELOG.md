@@ -53,3 +53,8 @@ framework rather than an empty scaffold.
   the rest of the file; generates a **version-consistency hint** so a scaffolded
   repo's CHANGELOG / package.json / README badge stay in sync from day one.
 - `tools/version-check.mjs` — removed a dead no-op comment block.
+
+### Docs
+- README / SPEC (en + zh-CN) now document that `generate` also emits
+  `AGENTS.md` and (with third-party deps) `THIRD_PARTY_NOTICES.md`.
+- Added `.gitignore`.

@@ -109,6 +109,12 @@ extracts the **owner/repo** so the CI badge and license line point at the real
 GitHub pages (no placeholders). No origin yet? Set
 `README_HARNESS_OWNER=<your-username>` (or point origin) and re-run.
 
+Beyond the README, one `generate` call also emits an **`AGENTS.md`** (an AI
+working contract a coding agent reads when it opens the repo) and, if the target
+repo declares any third-party dependencies, a **`THIRD_PARTY_NOTICES.md`**
+licence disclosure — so a new repo starts both agent-ready and
+licence-distribution compliant.
+
 ## Adopting
 
 `Readme Harness` follows [SemVer 2.0.0](https://semver.org/) and the

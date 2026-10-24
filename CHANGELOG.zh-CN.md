@@ -42,3 +42,17 @@
 - `tools/generate.mjs` 会自动检测被套用仓库的第三方依赖，并生成一份
   **`THIRD_PARTY_NOTICES.md`** 披露文件（对标 DeepSeek-Harness），让新仓库
   从一开始就满足许可证再分发合规。
+
+### 修复（Fixed）
+- `badges-meta.mjs` —— 移除失效的实时 GitHub API 分支（同步 `fetch` 在脚本
+  退出前永远无法返回，因此静默地变成了 no-op）。指标现在必须通过 `--data`
+  提供；徽章标签已做 URL 编码。
+- `tools/generate.mjs` —— THIRD_PARTY_NOTICES 模板改用与全文件一致的真实换行；
+  新增**版本一致性提示**，让被套用仓库的 CHANGELOG / package.json / README
+  徽章从一开始就保持同步。
+- `tools/version-check.mjs` —— 删除无用的 no-op 占位注释。
+
+### 文档（Docs）
+- README / SPEC（en + zh-CN）现在说明 `generate` 还会产出 `AGENTS.md` 以及
+  （有第三方依赖时）`THIRD_PARTY_NOTICES.md`。
+- 新增 `.gitignore`。

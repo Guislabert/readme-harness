@@ -93,6 +93,17 @@ cp -r module/badges-google my-new-repo/module/
 node tools/generate.mjs my-new-repo
 ```
 
+生成器**自动检测**语言/依赖清单（`package.json`、`Cargo.toml`、`go.mod`、
+`pyproject.toml`）、版本、CI 工作流，以及已落地的模块。若目标仓库已有
+`git remote origin`，它会提取 **owner/repo**，让 CI 徽章与版权行指向真实
+GitHub 页面（不留占位符）。暂无 origin？设
+`README_HARNESS_OWNER=<你的用户名>`（或先加 origin）再重跑。
+
+除了 README，一次 `generate` 调用还会同时产出 **`AGENTS.md`**（编码代理打开
+仓库时读取的 AI 工作契约），以及——若目标仓库声明了任何第三方依赖——一份
+**`THIRD_PARTY_NOTICES.md`** 许可证披露，让新仓库一开始就既对代理友好、又
+满足许可证再分发合规。
+
 ## 采纳规范（Adopting）
 
 `Readme Harness` 遵循 SemVer 版本纪律，由 `tools/version-check.mjs` 统一守卫：

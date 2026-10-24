@@ -160,5 +160,7 @@ explicitly freezes the surface.
 1. `cp -r skeleton/ <new-repo>`
 2. Choose modules from `REGISTRY.md`; `cp -r module/<name> <new-repo>/`
 3. `node tools/generate.mjs <new-repo>` — emits the README from skeleton +
-   modules.
+   modules, and alongside it an `AGENTS.md` (AI working contract) plus, when
+   the target declares any third-party deps, a `THIRD_PARTY_NOTICES.md` licence
+   disclosure.
 4. Wire `tools/version-check.mjs` into the new repo's CI.

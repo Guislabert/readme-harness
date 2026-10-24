@@ -146,5 +146,7 @@ SemVer §4：**主版本零（`0.y.z`）用于初始开发。任何内容随时�
 
 1. `cp -r skeleton/ <new-repo>`
 2. 从 [`REGISTRY.zh-CN.md`](REGISTRY.zh-CN.md) 选模块；`cp -r module/<name> <new-repo>/`
-3. `node tools/generate.mjs <new-repo>` —— 从骨架 + 模块生成 README。
+3. `node tools/generate.mjs <new-repo>` —— 从骨架 + 模块生成 README；同时在旁边
+   产出 `AGENTS.md`（AI 工作契约），以及（当目标声明了任何第三方依赖时）
+   `THIRD_PARTY_NOTICES.md` 许可证披露。
 4. 把 `tools/version-check.mjs` 接进新仓库的 CI。
