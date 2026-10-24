@@ -153,3 +153,6 @@ Raise an issue for a module idea, a palette question, or a missing section.
 ## License
 
 MIT © Guislabert
+---
+
+[Rendered via Readme Harness **v0.1.0** (self-referential) — commit `8c65495`; [docs/readme-harness.md](docs/readme-harness.md) is this framework's own baseline](https://github.com/Guislabert/readme-harness)
