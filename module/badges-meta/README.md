@@ -47,5 +47,5 @@ Set the real owner/repo via `GITHUB_OWNER`/`--owner`, or let it inherit from
 
 ## Naming / version
 
-Part of Readme Harness v0.0.1. Registered as `#2` in `REGISTRY.md`.
+Part of Readme Harness v0.1.0. Registered as `#2` in `REGISTRY.md`.
 License: MIT

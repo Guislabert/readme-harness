@@ -5,9 +5,10 @@ All notable changes to Readme Harness are documented here. Follows
 the newest `## [x.y.z]` section, and every README Version badge must always
 match (enforced by `tools/version-check.mjs` in CI).
 
-## [0.0.1] — 2026-10-24
+## [0.1.0] — 2026-10-24
 
-Initial release.
+Initial release. First capability-tier version: a usable, pre-stability
+framework rather than an empty scaffold.
 
 ### Added
 - `badges-meta` module — threshold-gated GitHub-meta badges (stars · PRs ·

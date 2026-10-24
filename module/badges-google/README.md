@@ -44,5 +44,5 @@ published → licensed → meta`.
 
 ## Naming / version
 
-Part of Readme Harness v0.0.1. Registered as `#1` in `REGISTRY.md`.
+Part of Readme Harness v0.1.0. Registered as `#1` in `REGISTRY.md`.
 License: MIT

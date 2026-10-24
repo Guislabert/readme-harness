@@ -5,7 +5,7 @@
 <div align="center">
 
 [![CI](https://img.shields.io/badge/CI-passing-34A853.svg)][ci]
-[![Version](https://img.shields.io/badge/Version-0.0.1-4285F4.svg)][vlg]
+[![Version](https://img.shields.io/badge/Version-0.1.0-4285F4.svg)][vlg]
 [![License: MIT](https://img.shields.io/badge/License%3A%20MIT-FBBC05.svg)][osi]
 
 `#模块化` `#标准化` `#可复用` `#中文独立页面`
