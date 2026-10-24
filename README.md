@@ -1,5 +1,7 @@
 # Readme Harness
 
+**🌐 [简体中文](README.zh-CN.md)**
+
 > A standardised, modular framework for authoring project **README / Landing** pages — pick modules, apply a skeleton, ship a consistent page for every new repository. Inspired by [DeepSeek-Harness] and maintained by **@Guislabert**.
 
 <div align="center">
