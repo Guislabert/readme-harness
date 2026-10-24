@@ -2,6 +2,13 @@
 
 **🌐 [English](README.md)**
 
+<a href="https://github.com/Guislabert/readme-harness">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
+    <img alt="Readme Harness" src="assets/hero-light.svg" width="820">
+  </picture>
+</a>
+
 > 面向项目 **README / Landing 页**的标准化、模块化撰写框架 —— 选模块、套骨架，让每个新仓库都能快速产出规范一致的页面。中文独立页面；主展示页（英文 en-GB）见 `README.md`。灵感致敬 [DeepSeek-Harness][deepseek-harness]，由 **@Guislabert** 维护。
 
 <div align="center">
@@ -40,14 +47,21 @@
 readme-harness/
 ├── README.md                 #  英文(en-GB)主展示页
 ├── README.zh-CN.md           #  简体中文独立页(本文件)
-├── SPEC.md                   #  框架规范:模块/注册/版本/多语言纪律
-├── REGISTRY.md               #  模块注册表(单一信息源)
+├── SPEC.md / SPEC.zh-CN.md   #  框架规范(en / zh-CN)
+├── REGISTRY.md / REGISTRY.zh-CN.md  #  模块注册表(en / zh-CN)
 ├── module/                   #  可插拔模块(每个独立子目录落地)
-│   └── badges-google/        #   Google 四色徽章模块
+│   ├── badges-google/        #   Google 四色徽章模块
+│   └── badges-meta/          #   带阈值门控的 stars/downloads 徽章
 ├── skeleton/                 #  可复制的带注释骨架
 │   └── README.template.en.md
 ├── tools/
-│   └── generate.mjs          #  一键生成项目 README 骨架的入口
+│   ├── generate.mjs          #  一键生成项目 README 骨架的入口
+│   └── version-check.mjs     #  版本链一致性守卫
+├── CHANGELOG.md              #  keep-a-changelog 变更日志
+├── CHANGELOG.zh-CN.md        #  简体中文变更日志
+├── assets/                   #  hero 首图（明暗自适应 SVG）
+├── .github/
+│   └── workflows/ci.yml      #  CI:版本链 + 模块健全性
 └── LICENSE
 ```
 
@@ -56,6 +70,11 @@ readme-harness/
 | 模块 | 作用 | 落地方式 |
 |---|---|---|
 | `badges-google` | Google 四色徽章行（CI·Version·npm·License） | `module/badges-google/` |
+| `badges-meta` | 带阈值门控的 GitHub 元数据徽章（stars·PRs·downloads） | `module/badges-meta/` |
+
+> 对 `badges-meta`：徽章只在指标**跨过阈值后**才渲染（默认 stars `100`、
+> PRs `50`、downloads `500`）—— 所以全新仓库绝不会显示空洞的 `stars 0`。
+> npm 徽章只在包真正发布后才渲染（`SPEC.md §4a`）。
 
 > 四色只是一套**语义色板**中的一个实例 —— 需要 5 个以上徽章时的扩展方式见 `module/badges-google/README.md`。
 

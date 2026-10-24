@@ -27,3 +27,11 @@ framework rather than an empty scaffold.
 
 ### Changed
 - `google-badges.mjs` — fixed non-ASCII label rendering (double-dash labels).
+
+### Added (i18n)
+- Simplified-Chinese versions of every English doc: `SPEC.zh-CN.md`,
+  `REGISTRY.zh-CN.md`, `CHANGELOG.zh-CN.md`, and `README.zh-CN.md` module cards
+  in `module/badges-google/` and `module/badges-meta/`.
+- `assets/hero-{light,dark}.svg` — theme-aware hero image (ClawBench-style
+  serif header + gradient background + capsule labels), shown at the top of both
+  README pages via `<picture>`.

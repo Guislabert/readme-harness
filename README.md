@@ -2,6 +2,13 @@
 
 **🌐 [简体中文](README.zh-CN.md)**
 
+<a href="https://github.com/Guislabert/readme-harness">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
+    <img alt="Readme Harness" src="assets/hero-light.svg" width="820">
+  </picture>
+</a>
+
 > A standardised, modular framework for authoring project **README / Landing** pages — pick modules, apply a skeleton, ship a consistent page for every new repository. Inspired by [DeepSeek-Harness] and maintained by **@Guislabert**.
 
 <div align="center">
@@ -48,8 +55,9 @@ A plug-in framework, not a single template. It ships:
 readme-harness/
 ├── README.md                 #  en-GB main page (this file)
 ├── README.zh-CN.md           #  Simplified-Chinese separate page
-├── SPEC.md                   #  framework spec: module/registry/version discipline
-├── REGISTRY.md               #  module registry (single source of truth)
+├── SPEC.md / SPEC.zh-CN.md   #  framework spec (en / zh-CN)
+├── REGISTRY.md / REGISTRY.zh-CN.md  #  module registry (en / zh-CN)
+├── CHANGELOG.md / CHANGELOG.zh-CN.md  #  keep-a-changelog log (en / zh-CN)
 ├── module/                   #  plug-in modules (one landable dir each)
 │   ├── badges-google/        #    Google four-colour badge module
 │   └── badges-meta/          #    threshold-gated stars/downloads badges
@@ -58,7 +66,7 @@ readme-harness/
 ├── tools/
 │   ├── generate.mjs          #  one-command README scaffold generator
 │   └── version-check.mjs     #  release-train consistency guard
-├── CHANGELOG.md              #  keep-a-changelog log
+├── assets/                   #  hero images (light/dark SVG)
 ├── .github/
 │   └── workflows/ci.yml      #  CI: version train + module sanity
 └── LICENSE
