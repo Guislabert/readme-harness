@@ -80,62 +80,71 @@ badge simply drops out of the row (SSR, not a blank placeholder).
 
 ## 5. Version discipline
 
+Reference: **[SemVer 2.0.0](https://semver.org/)** — the authoritative
+specification this project follows. `tool:version-check.mjs`:
+`package.json.version === CHANGELOG newest === README badges`.
+
 ### 5a. What a version bump means (SemVer 2.0.0)
 
-Three fields, `MAJOR.MINOR.PATCH`, each counted independently. **Raise a field
-and reset everything to its right to zero.** Raising a field is a *decision*,
-not a milestone counter — numbers never "run up" for their own sake.
+SemVer defines three fields, `MAJOR.MINOR.PATCH`:
 
-| If you…                              | bump | example          |
-|--------------------------------------|------|------------------|
-| fix a bug, backward-compatible       | PATCH| `1.0.1 → 1.0.2`  |
-| add a feature, backward-compatible   | MINOR| `1.0.2 → 1.1.0`  |
-| break a public/consumed behaviour    | MAJOR| `1.1.0 → 2.0.0`  |
-| staying pre-1.0 (API not frozen)     | any  | `0.1.x → 0.2.0`  |
+- **MAJOR** — incremented when you make **incompatible** API changes
+  (`1.0.0 → 2.0.0` on a breaking change).
+- **MINOR** — incremented when you add functionality in a **backward-
+  compatible** manner (`1.0.0 → 1.1.0` on a new feature).
+- **PATCH** — incremented when you make **backward-compatible bug fixes**
+  (`1.0.0 → 1.0.1` on a fix).
 
-Common misconceptions this framework guards against:
+When you increment a field, the fields to its right are reset to zero (SemVer
+§7: `1.1.3 → 2.0.0`, not `2.1.3`).
 
-- **PATCH at 100 is a smell, not a goal.** If a codebase is at `0.0.100` you
-  shipped ~100 fixes without a backward-compatible feature/behavioural change —
-  consider raising MINOR instead. Nothing is "better" for having a bigger
-  number in a field.
-- **`0.x.y` means "API not frozen".** Any `0.x` release may break without
-  notice; readers should treat readiness as separate from stability.
-- **`1.0.0` is the first stability claim**, not a fanfare. It says the public
-  surface is committed and downstream can depend on it.
+### 5b. Pre-1.0 (`0.y.z`) — the initial development phase
 
-### 5b. A realistic advance ladder (Do not chase 0.0.100)
+SemVer §4: **major version zero (`0.y.z`) is for initial development. Anything
+may change at any time. The public API should not be considered stable.**
 
-```
-0.0.1 → 0.0.2 → 0.0.3          # bug fixes / micro-adjustments
-    │  first capability lands
-0.1.0 → 0.1.1 → 0.1.2          # one feature added, then fixes
-    │  second capability lands
-0.2.0                          # pushing toward a stable surface
-    │  public surface agreed, prod-ready — make the promise
-1.0.0 → 1.0.1 → 1.1.0 → 2.0.0 …
-```
+Two implications for this project:
 
-For **this** project, the practical progression looks like:
+1. While `readme-harness` is `0.y.z`, adopting repos should treat every
+   release as potentially breaking — this is expected and correct for the
+   initial phase.
+2. The first stable release is `1.0.0`: that is when the public module API and
+   CLI are declared stable and downstream repos may confidently depend on them.
 
-| Today | When you'd go there            | What justifies it                    |
-|-------|--------------------------------|---------------------------------------|
-| `0.0.1` | `0.0.2`                     | a bug fix / doc fix                   |
-| `0.1.0` | a new capability (e.g. `hero-image`) | backward-compatible addition   |
-| `1.0.0` | public module API + CLI considered stable | users may depend on it   |
-| `1.1.0` | another additive capability  | backward-compatible feature           |
-| `2.0.0` | a breaking change to module/CLI | consumers must migrate          |
+### 5c. Which field to raise (the decision)
 
-### 5c. Automation (already wired)
+The bump rule is a **decision about the nature of the change**, not a counting
+exercise:
+
+| Nature of change                     | bump | example         |
+|--------------------------------------|------|-----------------|
+| backward-compatible bug fix          | PATCH| `1.0.0 → 1.0.1` |
+| backward-compatible new functionality| MINOR| `1.0.1 → 1.1.0` |
+| incompatible API/behaviour change    | MAJOR| `1.1.0 → 2.0.0` |
+
+Mapping to commit style (Conventional Commits): a `fix` → PATCH, a `feat` →
+MINOR, a `BREAKING CHANGE` → MAJOR.
+
+Three clarifying points:
+
+- **Raise the *least significant* field that fits.** If in doubt between
+  MINOR and PATCH, pick the field that matches the *semantics* of the change,
+  never the one that merely makes the number bigger.
+- **`0.y.z` has no special "PATCH at 100" rule.** The `0.y.z` phase drops the
+  three-field discipline for stability but the bump *intent* still applies —
+  add capabilities at `MINOR`, fix at `PATCH`, per §5a.
+- **`1.0.0` is the stability commitment**, at which point the promise of
+  backward compatibility begins in earnest. The `0.y.z` → `1.0.0` jump
+explicitly freezes the surface.
+
+### 5d. Automation (already wired)
 
 - **`tools/version-check.mjs`** enforces *coherence* —
   `package.json.version === CHANGELOG newest === README badges` — so a release
-  can never be half-applied. It does **not** pick the next number for you.
-- **Guidance for picking the number**: the table in §5a decides *which field*;
-  git history decides the *delta*. If the change is `fix`-class → PATCH,
-  `feat`-class → MINOR, breaking → MAJOR (Conventional Commits mapping).
-- Bump all surfaces **in one commit**: `package.json`, a new `CHANGELOG.md`
-  section, and every README Version badge, then let CI prove it.
+  can never be half-applied. It does **not** choose the next number.
+- **Choosing the number**: §5c decides *which field*; the change itself decides
+  the delta. Bump all surfaces **in one commit** (`package.json`, a new
+  `CHANGELOG.md` section, every README Version badge), then let CI prove it.
 
 ## 6. Language discipline
 

@@ -101,16 +101,15 @@ GitHub pages (no placeholders). No origin yet? Set
 
 ## Adopting
 
-`Readme Harness` follows SemVer and the version-guard discipline enforced by
-`tools/version-check.mjs`: `package.json.version === CHANGELOG newest section
-=== README badges`. Version bumps are release points, not push points. See
-[SPEC.md](SPEC.md).
+`Readme Harness` follows [SemVer 2.0.0](https://semver.org/) and the
+version-guard discipline enforced by `tools/version-check.mjs`:
+`package.json.version === CHANGELOG newest section === README badges`. Version
+bumps are release points, not push points. See
+[`SPEC.md §5`](SPEC.md).
 
-Which field to raise (PATCH / MINOR / MAJOR) is a **decision**, not a counting
-exercise — see [`SPEC.md §5`](SPEC.md). In short: fix → PATCH, backward-
-compatible feature → MINOR, breaking change → MAJOR (`0.x.y` is pre-stability;
-there is nothing gained by running a patch field up to 100 — raise MINOR
-instead).
+In short (see SemVer): backward-compatible bug fix → PATCH, backward-compatible
+new functionality → MINOR, incompatible change → MAJOR. During `0.y.z`
+(initial development) the public API is not yet considered stable.
 
 ## Feedback
 
