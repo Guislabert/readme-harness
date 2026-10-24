@@ -9,14 +9,6 @@
 
 </div>
 
-<h1 align="center">Readme Harness</h1>
-
-<div align="center">
-
-> A standardised, modular framework for authoring project **README / Landing** pages — pick modules, apply a skeleton, ship a consistent page for every new repository. Inspired by [DeepSeek-Harness] and maintained by **@Guislabert**.
-
-</div>
-
 <div align="center">
 
 [![CI](https://img.shields.io/badge/CI-passing-34A853.svg)][ci]
@@ -24,6 +16,14 @@
 [![License: MIT](https://img.shields.io/badge/License%3A%20MIT-FBBC05.svg)][osi]
 
 `#modular` `#standardised` `#reusable` `#en-GB-first` `#plug-in`
+
+</div>
+
+<h1 align="center">Readme Harness</h1>
+
+<div align="center">
+
+> A standardised, modular framework for authoring project **README / Landing** pages — pick modules, apply a skeleton, ship a consistent page for every new repository. Inspired by [DeepSeek-Harness] and maintained by **@Guislabert**.
 
 </div>
 
