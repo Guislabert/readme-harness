@@ -74,9 +74,9 @@ readme-harness/
 
 > 对 `badges-meta`：徽章只在指标**跨过阈值后**才渲染（默认 stars `100`、
 > PRs `50`、downloads `500`）—— 所以全新仓库绝不会显示空洞的 `stars 0`。
-> npm 徽章只在包真正发布后才渲染（`SPEC.md §4a`）。
+> npm 徽章只在包真正发布后才渲染（`SPEC.zh-CN.md §4a`）。
 
-> 四色只是一套**语义色板**中的一个实例 —— 需要 5 个以上徽章时的扩展方式见 `module/badges-google/README.md`。
+> 四色只是一套**语义色板**中的一个实例 —— 需要 5 个以上徽章时的扩展方式见 `module/badges-google/README.zh-CN.md`。
 
 ## 快速开始
 
@@ -96,7 +96,7 @@ node tools/generate.mjs my-new-repo
 ## 采纳规范（Adopting）
 
 `Readme Harness` 遵循 SemVer 版本纪律，由 `tools/version-check.mjs` 统一守卫：
-`package.json.version === CHANGELOG 最新小节 === README 徽章`。版本提升是发布节点，而非随便的提交点。详见 [SPEC.md](SPEC.md)。
+`package.json.version === CHANGELOG 最新小节 === README 徽章`。版本提升是发布节点，而非随便的提交点。详见 [SPEC.zh-CN.md](SPEC.zh-CN.md)。
 
 ## 反馈
 

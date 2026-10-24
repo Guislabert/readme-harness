@@ -13,13 +13,13 @@
 
 ### 新增（Added）
 - `badges-meta` 模块 —— 带阈值门控的 GitHub 元数据徽章（stars · PRs ·
-  downloads）；只有当某个指标跨过阈值时才渲染（`SPEC.md §4a`）。
+  downloads）；只有当某个指标跨过阈值时才渲染（`SPEC.zh-CN.md §4a`）。
 - `scripts/ci-badges-meta.sh` + `.github/workflows/ci.yml` —— CI 在每次 push/PR
   时运行版本链守卫、徽章行审计、`badges-meta` 健全性检查，以及一次生成器走查。
 - 框架脚手架：`module/`、`skeleton/`、`tools/`、`REGISTRY.md`、`SPEC.md`。
 - `badges-google` 模块 —— Google 四色徽章行（CI · Version · License），通过
   `module/badges-google/` 落地，可从语义色板扩展。
-- 超出四色时的语义色板（`SPEC.md §4`）。
+- 超出四色时的语义色板（`SPEC.zh-CN.md §4`）。
 - `tools/generate.mjs` —— 一键 README 生成器，带自动检测
   （语言/依赖清单、版本、CI、模块、`git remote` 的 owner/repo）。
 - `tools/version-check.mjs` —— 版本链一致性守卫。

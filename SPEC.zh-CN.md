@@ -29,7 +29,7 @@ readme-harness/
 
 ## 3. 模块（Modules）
 
-- **模块**是一个自包含组件，以目录形式落地到项目中（见 `REGISTRY.md`）。
+- **模块**是一个自包含组件，以目录形式落地到项目中（见 [`REGISTRY.zh-CN.md`](REGISTRY.zh-CN.md)）。
 - 每个模块必须自带 `README.md` —— 一张**模块卡（module card）**，说明其用途、目标展示在小节、以及如何扩展。
 - 模块是**可选的**；一个项目可以包含零个、一个或多个模块。
 - 模块名有版本约束并登记在注册表中；模块绝不静默改名。
@@ -131,7 +131,7 @@ SemVer §4：**主版本零（`0.y.z`）用于初始开发。任何内容随时�
   `package.json.version === CHANGELOG 最新 === README 徽章` —— 因此一次发布
   永远不会「只改了一半」。它**不替你**选择下一个版本号。
 - **选择版本号**：§5c 决定升*哪一位*；变更本身决定增量。所有表面上**用一次提交**
-  一起升（`package.json`、一条新的 `CHANGELOG.md` 小节、每个 README 的 Version
+  一起升（`package.json`、一条新的 [CHANGELOG.zh-CN.md](CHANGELOG.zh-CN.md) 小节、每个 README 的 Version
   徽章），然后交给 CI 去验证。
 
 ## 6. 多语言纪律（Language discipline）
@@ -145,6 +145,6 @@ SemVer §4：**主版本零（`0.y.z`）用于初始开发。任何内容随时�
 ## 7. 采纳一个新仓库（Adopting a new repository）
 
 1. `cp -r skeleton/ <new-repo>`
-2. 从 `REGISTRY.md` 选模块；`cp -r module/<name> <new-repo>/`
+2. 从 [`REGISTRY.zh-CN.md`](REGISTRY.zh-CN.md) 选模块；`cp -r module/<name> <new-repo>/`
 3. `node tools/generate.mjs <new-repo>` —— 从骨架 + 模块生成 README。
 4. 把 `tools/version-check.mjs` 接进新仓库的 CI。

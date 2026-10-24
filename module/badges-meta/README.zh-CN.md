@@ -20,7 +20,7 @@
 | npm 下载 | danger  | `500`     | 仅当产物已发布时渲染                   |
 
 阈值用 `--threshold-stars 100` 这类标志，按项目覆盖。低于阈值时徽章只是从徽章行中
-**消失**（SSR，而不是留一个空位）—— 与 `SPEC.md §4a` 一致。
+**消失**（SSR，而不是留一个空位）—— 与 `SPEC.zh-CN.md §4a` 一致。
 
 ## 文件
 
@@ -48,5 +48,5 @@ node module/badges-meta/badges-meta.mjs owner/repo \
 
 ## 命名 / 版本
 
-属于 Readme Harness v0.1.0。在 `REGISTRY.md` 中登记为 `#2`。
+属于 Readme Harness v0.1.0。在 [`REGISTRY.zh-CN.md`](REGISTRY.zh-CN.md) 中登记为 `#2`。
 License: MIT
