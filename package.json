@@ -1,0 +1,12 @@
+{
+  "name": "readme-harness",
+  "version": "0.0.3",
+  "private": false,
+  "type": "module",
+  "license": "MIT",
+  "description": "Standardised, modular framework for authoring project README / Landing pages.",
+  "author": "Guislabert",
+  "scripts": {
+    "generate": "node tools/generate.mjs"
+  }
+}
