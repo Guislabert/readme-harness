@@ -13,3 +13,4 @@ Every plug-in module of Readme Harness is listed here. To add a module:
 | — | `hero-image`    | header         | `module/hero-image/`       | planned |
 | — | `why-section`   | after tagline  | `module/why-section/`      | planned |
 | — | `before-after`  | proof section  | `module/before-after/`     | planned |
+| 3 | `acknowledgements` | before `## License` | `module/acknowledgements/` | live |

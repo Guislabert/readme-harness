@@ -4,6 +4,10 @@
   comments) and fill the bracketed slots. English (en-GB) voice by default.
 
   Sections map to README-Harness modules in REGISTRY.md.
+  Philosophy: architecture is unified, content is free — beyond this skeleton
+  you may add any sections and depth your project needs (SPEC §1a).
+  Optional acknowledgements: add a `## Acknowledgements` section if you
+  reference/are inspired by other projects (module: acknowledgements).
 -->
 # <Project Name>
 

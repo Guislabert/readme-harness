@@ -21,7 +21,7 @@
 
 <div align="center">
 
-> 面向项目 **README / Landing 页**的标准化、模块化撰写框架 —— 选模块、套骨架，让每个新仓库都能快速产出规范一致的页面。中文独立页面；主展示页（英文 en-GB）见 `README.md`。灵感致敬 [DeepSeek-Harness][deepseek-harness]，由 **@Guislabert** 维护。
+> 面向项目 **README / Landing 页**的标准化、模块化撰写框架 —— 选模块、套骨架，让每个新仓库都能快速产出规范一致的页面。中文独立页面；主展示页（英文 en-GB）见 `README.md`。灵感致敬 [DeepSeek-Harness][deepseek-harness] 与 [ClawBench][clawbench]，由 **@Guislabert** 维护。
 
 </div>
 
@@ -133,3 +133,4 @@ GitHub 页面（不留占位符）。暂无 origin？设
 ## License
 
 MIT © Guislabert
+[clawbench]: https://clawbench.dev

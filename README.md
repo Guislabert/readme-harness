@@ -21,7 +21,7 @@
 
 <div align="center">
 
-> A standardised, modular framework for authoring project **README / Landing** pages — pick modules, apply a skeleton, ship a consistent page for every new repository. Inspired by [DeepSeek-Harness] and maintained by **@Guislabert**.
+> A standardised, modular framework for authoring project **README / Landing** pages — pick modules, apply a skeleton, ship a consistent page for every new repository. Inspired by [DeepSeek-Harness] and [ClawBench][clawbench], maintained by **@Guislabert**.
 
 </div>
 
@@ -155,4 +155,5 @@ Raise an issue for a module idea, a palette question, or a missing section.
 MIT © Guislabert
 ---
 
-[Rendered via Readme Harness **v0.1.0** (self-referential) — commit `8c65495`; [docs/readme-harness.md](docs/readme-harness.md) is this framework's own baseline](https://github.com/Guislabert/readme-harness)
+_Layout: [Readme Harness](../readme-harness) v0.1.0 @`8c65495` — baseline in [docs/readme-harness.md](docs/readme-harness.md)._
+[clawbench]: https://clawbench.dev

@@ -13,6 +13,26 @@ landing page is assembled. It separates three concerns:
   independently landable;
 - the **registry** — the *catalogue* of what ships and where it goes.
 
+## 1a. Philosophy — architecture unified, content free
+
+Readme Harness enforces **one standard header architecture**, but leaves every
+repository **free to hold its own depth**. The contract splits cleanly:
+
+- **Architecture is unified** (mandatory): the head layout (hero → badges →
+  centred H1 → blockquote description → `NOTE` → language switch), the
+  semantic badge palette, and the reference-style badge row are standardised
+  so every page reads consistently.
+- **Sections & content are free** (optional): beyond the skeleton's `Why` / `What`
+  / `Quick start` placeholders, a repository may add *any* sections it needs —
+  deep feature tables, domain models, command references, tutorials, FAQ — and
+  may write its own depth into each. The skeleton defines minimum structure, not
+  a ceiling; it never mandates which extra sections a project must have.
+
+Consequence: a page may share the same architecture as another yet be far
+richer, because depth is owned by the repository, not imposed by the harness.
+The harness standardises *how the page reads*; it does not dictate *what the
+project is*.
+
 ## 2. Layout
 
 ```
