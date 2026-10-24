@@ -153,7 +153,7 @@ Raise an issue for a module idea, a palette question, or a missing section.
 
 - **Framework**: derives from the plug-and-module idea of [DeepSeek-Harness](https://github.com/deepseek-ai/deepseek-harness).
 - **Header layout**: centred landing header drawn from [ClawBench](https://clawbench.dev).
-- Harness itself follows the architecture-unified, content-free philosophy (SPEC §1a).
+- Harness itself follows the architecture-unified, section & content-free philosophy (SPEC §1a).
 
 ## License
 

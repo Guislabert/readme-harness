@@ -13,7 +13,7 @@ landing page is assembled. It separates three concerns:
   independently landable;
 - the **registry** — the *catalogue* of what ships and where it goes.
 
-## 1a. Philosophy — architecture unified, content free
+## 1a. Philosophy — architecture unified, section & content free
 
 Readme Harness enforces **one standard header architecture**, but leaves every
 repository **free to hold its own depth**. The contract splits cleanly:

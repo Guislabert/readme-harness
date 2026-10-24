@@ -133,7 +133,7 @@ GitHub 页面（不留占位符）。暂无 origin？设
 
 - **框架**：源自 [DeepSeek-Harness](https://github.com/deepseek-ai/deepseek-harness) 的插件—模块理念。
 - **头部版式**：居中式 landing 头部取自 [ClawBench](https://clawbench.dev)。
-- 自身遵循「架构统一 + 内容自由」哲学（SPEC §1a）。
+- 自身遵循「架构统一 + Section + 内容自由」哲学（SPEC §1a）。
 
 ## License
 
