@@ -21,7 +21,7 @@
 
 <div align="center">
 
-> A standardised, modular framework for authoring project **README / Landing** pages — pick modules, apply a skeleton, ship a consistent page for every new repository. Inspired by [DeepSeek-Harness] and [ClawBench][clawbench], maintained by **@Guislabert**.
+> A standardised, modular framework for authoring project **README / Landing** pages — pick modules, apply a skeleton, ship a consistent page for every new repository. Inspired by [DeepSeek-Harness](https://github.com/deepseek-ai/deepseek-harness) and [ClawBench](https://clawbench.dev), maintained by **@Guislabert**.
 
 </div>
 
@@ -144,11 +144,16 @@ Raise an issue for a module idea, a palette question, or a missing section.
 [ci]: https://github.com/Guislabert/readme-harness/actions
 [vlg]: CHANGELOG.md
 [osi]: https://opensource.org/licenses/MIT
-[deepseek-harness]: https://github.com/deepseek-ai/deepseek-harness
 
 > npm: `readme-harness` is distributed **Git-first, never via npm** (no npm
 > account required). The package name stays reserved so a maintainer
 > contributor can publish on your behalf if the community ever wants one.
+
+## Acknowledgements
+
+- **Framework**: derives from the plug-and-module idea of [DeepSeek-Harness](https://github.com/deepseek-ai/deepseek-harness).
+- **Header layout**: centred landing header drawn from [ClawBench](https://clawbench.dev).
+- Harness itself follows the architecture-unified, content-free philosophy (SPEC §1a).
 
 ## License
 
@@ -156,4 +161,3 @@ MIT © Guislabert
 ---
 
 Layout: readme-harness v0.1.0 @`8c65495` · baseline: docs/readme-harness.md
-[clawbench]: https://clawbench.dev

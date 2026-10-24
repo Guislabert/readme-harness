@@ -21,7 +21,7 @@
 
 <div align="center">
 
-> 面向项目 **README / Landing 页**的标准化、模块化撰写框架 —— 选模块、套骨架，让每个新仓库都能快速产出规范一致的页面。中文独立页面；主展示页（英文 en-GB）见 `README.md`。灵感致敬 [DeepSeek-Harness][deepseek-harness] 与 [ClawBench][clawbench]，由 **@Guislabert** 维护。
+> 面向项目 **README / Landing 页**的标准化、模块化撰写框架 —— 选模块、套骨架，让每个新仓库都能快速产出规范一致的页面。中文独立页面；主展示页（英文 en-GB）见 `README.md`。灵感致敬 [DeepSeek-Harness](https://github.com/deepseek-ai/deepseek-harness) 与 [ClawBench](https://clawbench.dev)，由 **@Guislabert** 维护。
 
 </div>
 
@@ -126,13 +126,17 @@ GitHub 页面（不留占位符）。暂无 origin？设
 [ci]: https://github.com/Guislabert/readme-harness/actions
 [vlg]: CHANGELOG.md
 [osi]: https://opensource.org/licenses/MIT
-[deepseek-harness]: https://github.com/deepseek-ai/deepseek-harness
 
 > npm: `readme-harness` 以 **Git-first 方式分发，绝不通过 npm**（无需 npm 账号注册）。包名予以保留，供日后社区确有需要时由维护者替代发布。
+
+## 致谢（Acknowledgements）
+
+- **框架**：源自 [DeepSeek-Harness](https://github.com/deepseek-ai/deepseek-harness) 的插件—模块理念。
+- **头部版式**：居中式 landing 头部取自 [ClawBench](https://clawbench.dev)。
+- 自身遵循「架构统一 + 内容自由」哲学（SPEC §1a）。
 
 ## License
 
 MIT © Guislabert
-[clawbench]: https://clawbench.dev
 
 Layout: readme-harness v0.1.0 @`8c65495` · baseline: docs/readme-harness.md
