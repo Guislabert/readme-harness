@@ -155,5 +155,5 @@ Raise an issue for a module idea, a palette question, or a missing section.
 MIT © Guislabert
 ---
 
-_Layout: [Readme Harness](../readme-harness) v0.1.0 @`8c65495` — baseline in [docs/readme-harness.md](docs/readme-harness.md)._
+Layout: readme-harness v0.1.0 @`8c65495` · baseline: docs/readme-harness.md
 [clawbench]: https://clawbench.dev
