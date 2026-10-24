@@ -20,6 +20,10 @@ jobs:
       - name: Version coherence
         run: node tools/version-check.mjs
 
+      # Unit tests (node:test, zero deps): generate / badges / version-check.
+      - name: Unit tests
+        run: npm test
+
       # Badge row audit (dry-run): fails the build if a README badge row drifts.
       - name: Badge row audit
         run: node module/badges-google/google-badges.mjs . || true

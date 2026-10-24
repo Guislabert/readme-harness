@@ -218,6 +218,16 @@ ${modules.length ? "- " + modules.join("\n- ") : "- (none yet — pick from the 
 When adding a section, feature, or claim to \`README.md\`, prefer an existing
 module over ad-hoc edits; keep the badge row and structure consistent with the
 framework (SPEC.md §4a).
+
+## Testing
+
+- New non-trivial logic (a branch, a parser, file writes, any CLI behaviour)
+  ships with a test that fails when it breaks — run \`npm test\` (node:test,
+  zero dependencies).
+- Prefer the smallest test that proves the behaviour; delete tests whose reason
+  to exist is gone, don\'t nurse them.
+- CI reports but is never your only verification: always run \`npm test\`
+  (and \`node tools/version-check.mjs\`) locally before depending on a change.
 `;
 writeFileSync(join(dest, "AGENTS.md"), agentsOut);
 console.log(`[readme-harness] also generated ${join(dest, "AGENTS.md")}`);

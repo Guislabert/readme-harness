@@ -56,3 +56,12 @@
 - README / SPEC（en + zh-CN）现在说明 `generate` 还会产出 `AGENTS.md` 以及
   （有第三方依赖时）`THIRD_PARTY_NOTICES.md`。
 - 新增 `.gitignore`。
+
+### 测试（Tests）
+- 新增零依赖单元测试套件（`node:test`），覆盖全部四个 CLI：
+  `tools/generate.mjs`（8）、`tools/version-check.mjs`（6）、
+  `module/badges-meta/badges-meta.mjs`（9）、`module/badges-google/google-badges.mjs`
+  （4）——共 27 个测试。接入为 `npm test` 并加入 CI。
+- `generate` 产出的 `AGENTS.md` 现在包含**测试（Testing）**一节（借鉴自
+  LayerFS 的 agent 契约）：新逻辑必须带测试、优先最小的测试，并在本地跑
+  `npm test` 而非只信 CI。

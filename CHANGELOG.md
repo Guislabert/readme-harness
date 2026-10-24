@@ -58,3 +58,12 @@ framework rather than an empty scaffold.
 - README / SPEC (en + zh-CN) now document that `generate` also emits
   `AGENTS.md` and (with third-party deps) `THIRD_PARTY_NOTICES.md`.
 - Added `.gitignore`.
+
+### Tests
+- Added a zero-dependency unit-test suite (`node:test`) covering all four
+  CLIs: `tools/generate.mjs` (8), `tools/version-check.mjs` (6),
+  `module/badges-meta/badges-meta.mjs` (9), `module/badges-google/google-badges.mjs`
+  (4) — 27 tests total. Wired as `npm test` and added to CI.
+- `generate`'s `AGENTS.md` now includes a **Testing** section (borrowed from
+  the LayerFS agent contract): new logic ships with a test, prefer the smallest
+  test, and run `npm test` locally rather than trusting CI alone.
