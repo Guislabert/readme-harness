@@ -15,8 +15,6 @@
 [![Version](https://img.shields.io/badge/Version-0.1.0-4285F4.svg)][vlg]
 [![License: MIT](https://img.shields.io/badge/License%3A%20MIT-FBBC05.svg)][osi]
 
-`#modular` `#standardised` `#reusable` `#en-GB-first` `#plug-in`
-
 </div>
 
 <h1 align="center">Readme Harness</h1>
