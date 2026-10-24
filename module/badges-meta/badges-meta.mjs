@@ -7,10 +7,10 @@
 //   node badges-meta.mjs <owner/repo> [--threshold-stars N] [--threshold-prs N]
 //                                            [--threshold-dl N] [--data file.json]
 //
-// Data sources, in order:
-//   1. --data <file>          a cached/metrics JSON file (offline, CI-friendly)
-//   2. GITHUB_TOKEN env        live GitHub REST API (unauthenticated works too)
-//   3. fallback                renders nothing (or a hint when --strict)
+// Data source:
+//   --data <file>   a cached/metrics JSON file (offline, CI-friendly)
+//   (no live API branch — a synchronous fetch can't return, so we removed it;
+//   feed fresh metrics via --data instead. strict: exit 1 if no file.)
 import { readFileSync, existsSync } from "node:fs";
 
 const args = process.argv.slice(2);
@@ -37,27 +37,19 @@ const NEUTRAL = "5F6368";
 const DANGER = "EA4335";
 
 function shield(label, value, colour, href) {
-  return `[![${label}](https://img.shields.io/badge/${label}${zx}${value}-${colour}.svg)](${href})`;
+  const safe = encodeURIComponent(label);
+  return `[![${label}](https://img.shields.io/badge/${safe}${zx}${value}-${colour}.svg)](${href})`;
 }
 
-function readMetrics() {
-  if (dataFile && existsSync(dataFile)) {
-    return JSON.parse(readFileSync(dataFile, "utf8"));
-  }
-  const token = process.env.GITHUB_TOKEN;
-  const url = `https://api.github.com/repos/${repoArg}`;
-  try {
-    const res = fetch(url, { headers: token ? { Authorization: `Bearer ${token}` } : {} });
-    // synchronous-ish wrapper: keep it simple — data file is the primary path;
-    // live fetch is best-effort and left for async callers in CI.
-  } catch {}
-  return null;
+// No live GitHub API branch: a synchronous fetch can't return before this
+// sync script exits, so it would never be read. Metrics must come via --data.
+let m = null;
+if (dataFile && existsSync(dataFile)) {
+  try { m = JSON.parse(readFileSync(dataFile, "utf8")); } catch { m = null; }
 }
-
-const m = readMetrics();
 if (!m) {
   if (strict) {
-    console.error(`badges-meta: no metrics for ${repoArg} (supply --data or GITHUB_TOKEN)`);
+    console.error(`badges-meta: no metrics for ${repoArg} (supply --data)`);
     process.exit(1);
   }
   console.log("<!-- badges-meta: no metrics available — no badges rendered -->");

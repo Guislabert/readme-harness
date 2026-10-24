@@ -63,9 +63,6 @@ for (const f of pages) {
   void label;
 }
 
-// ---- 4. version-check.mjs references the same script it is ---------------
-// No-op placeholder to keep tooling stable; the real check is above.
-
 if (fail.length) {
   console.error(`Version consistency check FAILED (expected ${version ?? "?"}):`);
   for (const f of fail) console.error(` - ${f}`);

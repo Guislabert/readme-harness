@@ -44,3 +44,12 @@ framework rather than an empty scaffold.
 - `tools/generate.mjs` auto-detects the scaffolded repo's third-party
   dependencies and emits a **`THIRD_PARTY_NOTICES.md`** disclosure (mirroring
   DeepSeek-Harness), so a new repo starts licence-distribution compliant.
+
+### Fixed
+- `badges-meta.mjs` — removed a dead live-GitHub-API branch (a synchronous
+  `fetch` can never return before the script exits, so it silently became a
+  no-op). Metrics must come via `--data`. Badge labels are now URL-encoded.
+- `tools/generate.mjs` — THIRD_PARTY_NOTICES template uses real new-lines like
+  the rest of the file; generates a **version-consistency hint** so a scaffolded
+  repo's CHANGELOG / package.json / README badge stay in sync from day one.
+- `tools/version-check.mjs` — removed a dead no-op comment block.
