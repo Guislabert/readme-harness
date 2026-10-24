@@ -80,16 +80,62 @@ badge simply drops out of the row (SSR, not a blank placeholder).
 
 ## 5. Version discipline
 
-Version coherence is a **framework-level guard**, enforced by
-`tools/version-check.mjs` per project:
+### 5a. What a version bump means (SemVer 2.0.0)
+
+Three fields, `MAJOR.MINOR.PATCH`, each counted independently. **Raise a field
+and reset everything to its right to zero.** Raising a field is a *decision*,
+not a milestone counter — numbers never "run up" for their own sake.
+
+| If you…                              | bump | example          |
+|--------------------------------------|------|------------------|
+| fix a bug, backward-compatible       | PATCH| `1.0.1 → 1.0.2`  |
+| add a feature, backward-compatible   | MINOR| `1.0.2 → 1.1.0`  |
+| break a public/consumed behaviour    | MAJOR| `1.1.0 → 2.0.0`  |
+| staying pre-1.0 (API not frozen)     | any  | `0.1.x → 0.2.0`  |
+
+Common misconceptions this framework guards against:
+
+- **PATCH at 100 is a smell, not a goal.** If a codebase is at `0.0.100` you
+  shipped ~100 fixes without a backward-compatible feature/behavioural change —
+  consider raising MINOR instead. Nothing is "better" for having a bigger
+  number in a field.
+- **`0.x.y` means "API not frozen".** Any `0.x` release may break without
+  notice; readers should treat readiness as separate from stability.
+- **`1.0.0` is the first stability claim**, not a fanfare. It says the public
+  surface is committed and downstream can depend on it.
+
+### 5b. A realistic advance ladder (Do not chase 0.0.100)
 
 ```
-package.json.version === CHANGELOG newest section === README badges
+0.0.1 → 0.0.2 → 0.0.3          # bug fixes / micro-adjustments
+    │  first capability lands
+0.1.0 → 0.1.1 → 0.1.2          # one feature added, then fixes
+    │  second capability lands
+0.2.0                          # pushing toward a stable surface
+    │  public surface agreed, prod-ready — make the promise
+1.0.0 → 1.0.1 → 1.1.0 → 2.0.0 …
 ```
 
-- Version bumps are **release points**, not push points (SemVer).
-- The guard runs in each adopting project's CI; it is not owned by any single
-  module.
+For **this** project, the practical progression looks like:
+
+| Today | When you'd go there            | What justifies it                    |
+|-------|--------------------------------|---------------------------------------|
+| `0.0.1` | `0.0.2`                     | a bug fix / doc fix                   |
+| `0.1.0` | a new capability (e.g. `hero-image`) | backward-compatible addition   |
+| `1.0.0` | public module API + CLI considered stable | users may depend on it   |
+| `1.1.0` | another additive capability  | backward-compatible feature           |
+| `2.0.0` | a breaking change to module/CLI | consumers must migrate          |
+
+### 5c. Automation (already wired)
+
+- **`tools/version-check.mjs`** enforces *coherence* —
+  `package.json.version === CHANGELOG newest === README badges` — so a release
+  can never be half-applied. It does **not** pick the next number for you.
+- **Guidance for picking the number**: the table in §5a decides *which field*;
+  git history decides the *delta*. If the change is `fix`-class → PATCH,
+  `feat`-class → MINOR, breaking → MAJOR (Conventional Commits mapping).
+- Bump all surfaces **in one commit**: `package.json`, a new `CHANGELOG.md`
+  section, and every README Version badge, then let CI prove it.
 
 ## 6. Language discipline
 

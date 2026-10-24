@@ -106,6 +106,12 @@ GitHub pages (no placeholders). No origin yet? Set
 === README badges`. Version bumps are release points, not push points. See
 [SPEC.md](SPEC.md).
 
+Which field to raise (PATCH / MINOR / MAJOR) is a **decision**, not a counting
+exercise — see [`SPEC.md §5`](SPEC.md). In short: fix → PATCH, backward-
+compatible feature → MINOR, breaking change → MAJOR (`0.x.y` is pre-stability;
+there is nothing gained by running a patch field up to 100 — raise MINOR
+instead).
+
 ## Feedback
 
 Raise an issue for a module idea, a palette question, or a missing section.
