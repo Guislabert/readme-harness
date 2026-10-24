@@ -134,3 +134,5 @@ GitHub 页面（不留占位符）。暂无 origin？设
 
 MIT © Guislabert
 [clawbench]: https://clawbench.dev
+
+Layout: readme-harness v0.1.0 @`8c65495` · baseline: docs/readme-harness.md
