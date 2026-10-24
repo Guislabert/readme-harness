@@ -5,7 +5,7 @@
 <div align="center">
 
 [![CI](https://img.shields.io/badge/CI-passing-34A853.svg)][ci]
-[![Version](https://img.shields.io/badge/Version-0.0.3-4285F4.svg)][vlg]
+[![Version](https://img.shields.io/badge/Version-0.0.1-4285F4.svg)][vlg]
 [![License: MIT](https://img.shields.io/badge/License%3A%20MIT-FBBC05.svg)][osi]
 
 `#modular` `#standardised` `#reusable` `#en-GB-first` `#plug-in`
@@ -49,11 +49,16 @@ readme-harness/
 ├── SPEC.md                   #  framework spec: module/registry/version discipline
 ├── REGISTRY.md               #  module registry (single source of truth)
 ├── module/                   #  plug-in modules (one landable dir each)
-│   └── badges-google/        #    Google four-colour badge module
+│   ├── badges-google/        #    Google four-colour badge module
+│   └── badges-meta/          #    threshold-gated stars/downloads badges
 ├── skeleton/                 #  copy-able commented skeleton
 │   └── README.template.en.md
 ├── tools/
-│   └── generate.mjs          #  one-command README scaffold generator
+│   ├── generate.mjs          #  one-command README scaffold generator
+│   └── version-check.mjs     #  release-train consistency guard
+├── CHANGELOG.md              #  keep-a-changelog log
+├── .github/
+│   └── workflows/ci.yml      #  CI: version train + module sanity
 └── LICENSE
 ```
 
@@ -62,6 +67,12 @@ readme-harness/
 | Module | Purpose | Land as |
 |---|---|---|
 | `badges-google` | Google four-colour badge row (CI·Version·npm·License) | `module/badges-google/` |
+| `badges-meta` | threshold-gated GitHub meta badges (stars·PRs·downloads) | `module/badges-meta/` |
+
+> For `badges-meta`: badges only render **after** the metric crosses a
+> threshold (default stars `100`, PRs `50`, downloads `500`) — so a fresh repo
+> never shows a hollow `stars 0`. npm badges render only when a package is
+> actually published (`SPEC.md §4a`).
 
 > The four colours are one instance of a broader **semantic colour palette** —
 > see `module/badges-google/README.md` for extending beyond 4 badges.

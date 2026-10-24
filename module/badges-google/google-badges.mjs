@@ -31,11 +31,17 @@ const MAX_BODY_LOSS = 0.20; // a --fix may shrink a README by at most 20%
 
 function row(lang) {
   const lv = localeLabel[lang] ?? "Version";
-  const label = `${lv}-0.0.1-`.replace("0.0.1", version ?? "0.0.0");
+  const label = lbl(lv, version ?? "0.0.0");
   const npm = npmPkg ? `[![npm version](https://img.shields.io/badge/npm${zx}version-${version}-${R}.svg)](https://www.npmjs.com/package/${npmPkg})\n` : "";
   const ci = ciRepo ? `[![CI](https://img.shields.io/badge/CI-passing-${C}.svg)](https://github.com/${ciRepo}/actions)\n` : "";
   const lic = existsSync(join(dir, "LICENSE")) ? `[![${licenseLabel}](https://img.shields.io/badge/{LICENSE}-${Y}.svg)](https://opensource.org/licenses/MIT)\n`.replace("{LICENSE}", licenseLabel.replace(": ", "-")) : "";
   return ci + `[![${lv}](https://img.shields.io/badge/${label}-${B}.svg)](CHANGELOG.md)\n` + npm + lic;
+}
+
+// Build `Label-version` without double dashes for non-ASCII labels.
+function lbl(lv, version) {
+  const src = `${lv}-0.0.1`; // no trailing dash: caller appends `-<colour>`
+  return src.replace("0.0.1", version);
 }
 
 let anyBlocked = false;

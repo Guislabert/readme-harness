@@ -61,6 +61,23 @@ When more than four badges are needed, extend from the **semantic palette**
 | warning  | `#FBBC05` | static/licence, warm closing       |
 | neutral  | `#5F6368` | meta (stars, downloads, PRs)       |
 
+## 4a. Badge display discipline (why not every badge, every time)
+
+A badge is only shown when it is **true and useful**. Two common cases:
+
+- **npm / published-artifact badge** — shown only when an artifact is actually
+  published to a registry (`npmPackage` configured → points to the real page).
+  This framework is **Git-first, npm-never**, so by default no npm badge renders.
+  A fake `0 downloads`/non-existent-package badge harms credibility; add it only
+  when a package really exists.
+- **Stars / GitHub-meta badge** — shown only once the repo crosses a **threshold**
+  (default `100`). A fresh repo at `0 stars` looks hollow, so `badges-meta`
+  defers rendering until the count is meaningful. Threshold is configurable per
+  project.
+
+Read order stays `built → versioned → published → licensed → meta`; a hidden
+badge simply drops out of the row (SSR, not a blank placeholder).
+
 ## 5. Version discipline
 
 Version coherence is a **framework-level guard**, enforced by

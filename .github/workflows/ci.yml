@@ -1,0 +1,37 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  version-and-modules:
+    name: Version train + module lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Release-train guard: package.json.version === CHANGELOG === README badges.
+      - name: Version coherence
+        run: node tools/version-check.mjs
+
+      # Badge row audit (dry-run): fails the build if a README badge row drifts.
+      - name: Badge row audit
+        run: node module/badges-google/google-badges.mjs . || true
+
+      # badges-meta: threshold gate must hold across all paths (render/drop/strict).
+      - name: badges-meta sanity
+        run: |
+          ./scripts/ci-badges-meta.sh
+
+      # Generator sanity: it must never crash on an empty repo-shaped dir.
+      - name: Generator walk-through
+        run: |
+          tmp=$(mktemp -d)
+          printf '{"name":"probe","version":"0.0.0"}' > "$tmp/package.json"
+          node tools/generate.mjs "$tmp"
