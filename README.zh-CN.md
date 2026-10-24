@@ -139,4 +139,4 @@ GitHub 页面（不留占位符）。暂无 origin？设
 
 MIT © Guislabert
 
-Layout: readme-harness v0.1.0 @`8c65495` · baseline: docs/readme-harness.md
+Layout: readme-harness [v0.1.0](CHANGELOG.zh-CN.md) @[`8c65495`](https://github.com/Guislabert/readme-harness/commit/8c65495) · baseline: [docs/readme-harness.md](docs/readme-harness.md)

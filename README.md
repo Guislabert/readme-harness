@@ -160,4 +160,4 @@ Raise an issue for a module idea, a palette question, or a missing section.
 MIT © Guislabert
 ---
 
-Layout: readme-harness v0.1.0 @`8c65495` · baseline: docs/readme-harness.md
+Layout: readme-harness [v0.1.0](CHANGELOG.md) @[`8c65495`](https://github.com/Guislabert/readme-harness/commit/8c65495) · baseline: [docs/readme-harness.md](docs/readme-harness.md)
