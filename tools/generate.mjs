@@ -37,8 +37,31 @@ const read = (p) => {
 };
 const has = (p) => existsSync(join(dest, ...p));
 
-// ---- 1. auto-detect ------------------------------------------------------
+// ---- 0. git remote -> owner/repo (auto-detection) ------------------------
+// Derive the GitHub owner + repo from the target's `origin` remote so every
+// generated README links to real pages instead of placeholders. Falls back to
+// env override, then to a naive "your-username" marker.
+const { execFileSync } = await import("node:child_process");
 const name = basename(dest);
+function readOwnerRepo() {
+  try {
+    const raw = execFileSync("git", ["-C", dest, "remote", "get-url", "origin"], {
+      encoding: "utf8",
+    }).trim();
+    // accept https://github.com/O/R.git, git@github.com:O/R.git, ssh://git@github.com/O/R.git
+    const m = raw.match(/(?:github\.com)[:/]([^/]+)\/([^/]+?)(?:\.git)?$/);
+    if (m) return { owner: m[1], repo: m[2] };
+  } catch { /* no remote yet — fall through */ }
+  if (process.env.README_HARNESS_OWNER) {
+    return { owner: process.env.README_HARNESS_OWNER, repo: name };
+  }
+  return { owner: "your-username", repo: name };
+}
+const { owner, repo } = readOwnerRepo();
+const page =
+  owner === "your-username" ? "#" : `https://github.com/${owner}/${repo}`;
+
+// ---- 1. auto-detect ------------------------------------------------------
 
 const pkg = (() => { try { return JSON.parse(read(["package.json"])); } catch { return {}; } })();
 const cargo = read(["Cargo.toml"]);
@@ -70,6 +93,10 @@ const ci =
   : has([".gitlab-ci.yml"]) ? "GitLab CI"
   : has(["Jenkinsfile"]) ? "Jenkins"
   : null;
+const ciUrl =
+  ci === "GitHub Actions" && owner !== "your-username"
+    ? `${page}/actions`
+    : "#";
 
 // modules already landed in the repo (scanned, not guessed by language)
 const modules = [];
@@ -112,9 +139,9 @@ ${badges}
 <!-- Policy, decision rules. -->
 
 ## License
-MIT © Guislabert
+MIT © ${owner}
 
-[ci]: ${ci ? "#" : "#"}
+[ci]: ${ciUrl}
 [vlg]: CHANGELOG.md
 [osi]: https://opensource.org/licenses/MIT
 `;
@@ -123,3 +150,4 @@ mkdirSync(dest, { recursive: true });
 writeFileSync(join(dest, "README.md"), out);
 console.log(`[readme-harness] generated ${join(dest, "README.md")}`);
 console.log(`  detected: name=${name} kind=${kind} version=${version} lang=${lang} ci=${ci ?? "none"} modules=[${modules.join(", ") || "none"}]`);
+console.log(`  origin -> ${owner === "your-username" ? "(none set; set README_HARNESS_OWNER or git remote origin)" : `${owner}/${repo}`}`);

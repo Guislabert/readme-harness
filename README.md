@@ -81,6 +81,13 @@ cp -r module/badges-google my-new-repo/module/
 node tools/generate.mjs my-new-repo
 ```
 
+The generator **auto-detects** the language/dependency manifest (`package.json`,
+`Cargo.toml`, `go.mod`, `pyproject.toml`), the version, any CI workflow, and
+which modules are present. If your repo already has a `git remote origin` it
+extracts the **owner/repo** so the CI badge and license line point at the real
+GitHub pages (no placeholders). No origin yet? Set
+`README_HARNESS_OWNER=<your-username>` (or point origin) and re-run.
+
 ## Adopting
 
 `Readme Harness` follows SemVer and the version-guard discipline enforced by
