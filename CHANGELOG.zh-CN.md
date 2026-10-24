@@ -34,3 +34,11 @@
   `module/badges-google/README.zh-CN.md` 与 `module/badges-meta/README.zh-CN.md`。
 - `assets/hero-{light,dark}.svg` —— 随主题自适应的首图（ClawBench 式衬线标题 +
   渐变背景 + 胶囊标签），通过 `<picture>` 置于两个 README 页顶部。
+
+### 新增（AI + Harness）
+- `tools/generate.mjs` 现在会在 README 之外同时生成一份 **`AGENTS.md`**
+  （AI 工作契约）—— DeepSeek-Harness 式的指南，让打开该仓库的编码代理无需提醒
+  就能了解其 README 纪律、SemVer 升版规则与模块清单。
+- `tools/generate.mjs` 会自动检测被套用仓库的第三方依赖，并生成一份
+  **`THIRD_PARTY_NOTICES.md`** 披露文件（对标 DeepSeek-Harness），让新仓库
+  从一开始就满足许可证再分发合规。

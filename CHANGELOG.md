@@ -35,3 +35,12 @@ framework rather than an empty scaffold.
 - `assets/hero-{light,dark}.svg` — theme-aware hero image (ClawBench-style
   serif header + gradient background + capsule labels), shown at the top of both
   README pages via `<picture>`.
+
+### Added (AI + Harness)
+- `tools/generate.mjs` now also emits an **`AGENTS.md`** (an AI working
+  contract) alongside the README — a DeepSeek-Harness-style guide so a coding
+  agent opening the repo learns its README discipline, SemVer bump rules, and
+  module list without being reminded.
+- `tools/generate.mjs` auto-detects the scaffolded repo's third-party
+  dependencies and emits a **`THIRD_PARTY_NOTICES.md`** disclosure (mirroring
+  DeepSeek-Harness), so a new repo starts licence-distribution compliant.
